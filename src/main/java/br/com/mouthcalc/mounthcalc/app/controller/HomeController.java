@@ -19,7 +19,7 @@ public class HomeController {
 
   @GetMapping
   public ResponseEntity<Resource> homePage() {
-    Resource resource = this.resourceLoader.getResource("classpath:static/home/index.html");
+    Resource resource = this.resourceLoader.getResource("classpath:static/landing.html");
     return ResponseEntity.ok().body(resource);
   }
 }

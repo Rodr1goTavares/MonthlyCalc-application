@@ -11,6 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public abstract class Transaction {
+  
   @Setter(AccessLevel.NONE)
   protected Long id;
   protected String name;

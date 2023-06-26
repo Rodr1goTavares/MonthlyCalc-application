@@ -18,7 +18,7 @@ public class Dashboard {
   
   @GetMapping
   public ResponseEntity<Resource> homePage() {
-    Resource resource = this.resourceLoader.getResource("classpath:static/dashboard/index.html");
+    Resource resource = this.resourceLoader.getResource("classpath:static/dashboard.html");
     return ResponseEntity.ok().body(resource);
   }
 }

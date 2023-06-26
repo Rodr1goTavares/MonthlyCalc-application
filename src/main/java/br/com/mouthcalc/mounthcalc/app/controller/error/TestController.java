@@ -35,4 +35,9 @@ public class TestController {
     modelAndView.addObject("name", "Rodri");
     return modelAndView;
   }
+
+  @GetMapping("test3")
+  public String test3() {
+    return "test";
+  }
 }

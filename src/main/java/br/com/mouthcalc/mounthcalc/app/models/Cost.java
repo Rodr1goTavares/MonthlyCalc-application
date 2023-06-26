@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import br.com.mouthcalc.mounthcalc.app.models.abstracts.Transaction;
 
-
 public class Cost extends Transaction {
 
   public Cost() {}
