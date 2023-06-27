@@ -2,7 +2,6 @@ package br.com.mouthcalc.mounthcalc.app.models.abstracts;
 
 import java.math.BigDecimal;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,8 +11,6 @@ import lombok.ToString;
 @ToString
 public abstract class Transaction {
   
-  @Setter(AccessLevel.NONE)
-  protected Long id;
   protected String name;
   protected String description;
   protected BigDecimal value;

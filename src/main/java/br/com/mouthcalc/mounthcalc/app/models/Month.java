@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,13 +17,20 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Entity
 public class Month {
   
   @Setter(AccessLevel.NONE)
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   protected Long id;
 
   private String name;
+
+  @OneToMany(mappedBy = "month")
   private List<Cost> costList = new ArrayList<>();
+
+  @OneToMany(mappedBy = "month")
   private List<Profit> profitList = new ArrayList<>();
 
   public Month() {}
