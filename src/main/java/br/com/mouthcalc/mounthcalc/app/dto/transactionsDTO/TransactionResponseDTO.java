@@ -3,7 +3,9 @@ package br.com.mouthcalc.mounthcalc.app.dto.transactionsDTO;
 import java.math.BigDecimal;
 
 import br.com.mouthcalc.mounthcalc.app.models.abstracts.Transaction;
+import lombok.ToString;
 
+@ToString
 public class TransactionResponseDTO {
   
   private String type;

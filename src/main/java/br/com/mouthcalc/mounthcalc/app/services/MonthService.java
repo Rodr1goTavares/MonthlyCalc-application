@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.mouthcalc.mounthcalc.app.models.Month;
 import br.com.mouthcalc.mounthcalc.app.repository.MonthRepository;
 
+import java.util.List;
+
 public class MonthService {
   
   @Autowired
@@ -24,5 +26,9 @@ public class MonthService {
 
   public Month getMonthById(Long id) {
     return this.monthRepository.getReferenceById(id);
+  }
+
+  public List<Month> getAllMonths() {
+    return monthRepository.findAll();
   }
 }

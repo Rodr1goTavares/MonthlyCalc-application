@@ -5,7 +5,9 @@ import java.util.List;
 import br.com.mouthcalc.mounthcalc.app.models.Cost;
 import br.com.mouthcalc.mounthcalc.app.models.Month;
 import br.com.mouthcalc.mounthcalc.app.models.Profit;
+import lombok.ToString;
 
+@ToString
 public class MonthResponseDTO {
 
   public String name;
