@@ -9,4 +9,4 @@ public class MounthcalcApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MounthcalcApplication.class, args);
 	}
-} 
+}

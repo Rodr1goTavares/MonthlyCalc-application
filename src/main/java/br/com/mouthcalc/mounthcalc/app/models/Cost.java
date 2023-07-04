@@ -19,16 +19,12 @@ public class Cost extends Transaction {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   protected Long id;
-
   @ManyToOne
   private Month month;
-
   public Cost() {}
-
   public Cost(String name, BigDecimal value) {
     this(name, null, value);
   }
-
   public Cost(String name, String description, BigDecimal value) {
     this.name = name;
     this.description = description;

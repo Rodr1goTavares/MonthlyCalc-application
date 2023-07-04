@@ -23,7 +23,9 @@ public class Month {
   @Setter(AccessLevel.NONE)
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  protected Long id;
+  private Long id;
+
+  private String ownerId;
 
   private String name;
 
@@ -32,37 +34,29 @@ public class Month {
 
   @OneToMany(mappedBy = "month")
   private List<Profit> profitList = new ArrayList<>();
-
   public Month() {}
-
-  public Month(String name) {
+  public Month(String ownerId, String name) {
+    this.ownerId = ownerId;
     this.name = name;
   }
-
   public void addCost(Cost cost) {
     this.costList.add(cost);
   }
-
   public void removeCost(Cost cost) {
     this.costList.remove(cost);
   }
-
   public List<Cost> getCostList() {
     return this.costList;
   }
-
   public void addProfit(Profit profit) {
     this.profitList.add(profit);
   }
-
   public void removeProfit(Profit profit) {
     this.profitList.remove(profit);
   }
-
   public List<Profit> getProfitList() {
     return this.profitList;
   }
-
   public BigDecimal getTotalCosts() {
     BigDecimal totalCosts = BigDecimal.ZERO;
     for (Cost cost : this.costList) {
@@ -70,7 +64,6 @@ public class Month {
     }
     return totalCosts;
   }
-
   public BigDecimal getTotalProfit() {
     BigDecimal totalProfit = BigDecimal.ZERO;
     for (Profit profit : this.profitList) {
@@ -78,7 +71,6 @@ public class Month {
     }
     return totalProfit;
   }
-
   public BigDecimal getMouthResult() {
     BigDecimal mouthCost = this.getTotalCosts(), mouthProfit = this.getTotalProfit();
     return mouthProfit.subtract(mouthCost);

@@ -12,16 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-  
-  // @Bean
-  // public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-  //   return authenticationConfiguration.getAuthenticationManager();
-  // }
-
-  // @Bean
-  // public PasswordEncoder passwordEncoder() {
-  //   return new BCryptPasswordEncoder();
-  // }
 
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
@@ -30,14 +20,8 @@ public class WebSecurityConfig {
         authorizeConfig.requestMatchers("/").permitAll();
         authorizeConfig.requestMatchers("/logout").permitAll();
         authorizeConfig.requestMatchers("/error").permitAll();
-        authorizeConfig.requestMatchers("/test").permitAll();
-        authorizeConfig.requestMatchers("/test1").permitAll();
-        authorizeConfig.requestMatchers("/test2").permitAll();
-        authorizeConfig.requestMatchers("/create").permitAll();// <-- test
-        authorizeConfig.requestMatchers(HttpMethod.OPTIONS ,"/create-month").permitAll();// <-- test
+        authorizeConfig.requestMatchers(HttpMethod.OPTIONS ,"/months").permitAll();// <-- test
         authorizeConfig.anyRequest().authenticated();
-      })
-      .formLogin(Customizer.withDefaults())
-      .build();    
+      }).oauth2Login(Customizer.withDefaults()).build();
   }
 }
