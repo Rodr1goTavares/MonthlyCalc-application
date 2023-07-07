@@ -16,11 +16,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/month")
 public class MonthController {
+
   private MonthService monthService = new MonthService();
+
   @GetMapping
   public ResponseEntity<List<Month>> getMonth(@AuthenticationPrincipal OidcUser principal) {
     return new ResponseEntity<>(this.monthService.getAllUserMonths(principal), HttpStatus.OK);
   }
+
   @PostMapping
   public ResponseEntity<MonthResponseDTO> postMonth(@RequestParam MonthRequestDTO monthRequestDTO, @AuthenticationPrincipal OidcUser principal) {
     Month recivedMonth = monthRequestDTO.toMonth(principal);

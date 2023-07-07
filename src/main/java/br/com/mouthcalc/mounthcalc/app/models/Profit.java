@@ -18,12 +18,16 @@ public class Profit extends Transaction {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   protected Long id;
+
   @ManyToOne
   private Month month;
+
   public Profit() {}
+
   public Profit(String name, BigDecimal value) {
     this(name, null, value);
   }
+
   public Profit(String name, String description, BigDecimal value) {
     this.name = name;
     this.description = description;

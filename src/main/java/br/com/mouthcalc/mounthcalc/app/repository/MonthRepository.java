@@ -10,5 +10,6 @@ import java.util.List;
 
 @Repository
 public interface MonthRepository extends JpaRepository<Month, Long> {
+
     List<Month> findByOwnerId(String ownerId);
 }
